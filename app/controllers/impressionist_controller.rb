@@ -154,10 +154,6 @@ module ImpressionistController
         id = request.session_options[:id]
       end
 
-      unless id.is_a? String
-        id = id.cookie_value if Rack::Session::SessionId.const_defined?(:ID_VERSION) && Rack::Session::SessionId::ID_VERSION == 2
-      end
-
       # id = cookies.session.id
       # rack 2.0.8 releases new version of session id, id.to_s will raise error!
       id
